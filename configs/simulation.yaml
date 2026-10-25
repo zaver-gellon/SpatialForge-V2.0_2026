@@ -1,0 +1,47 @@
+system:
+  device: simulation
+  log_level: INFO
+  max_frames: 40
+  output_dir: outputs/simulation
+
+sensor:
+  type: synthetic
+  width: 320
+  height: 240
+  fps: 15
+  fx: 240.0
+  fy: 240.0
+  cx: 160.0
+  cy: 120.0
+
+volume:
+  voxel_size: 0.05
+  truncation_voxels: 5.0
+  max_weight: 16.0
+  min_xyz: [-2.5, -2.5, 0.0]
+  max_xyz: [2.5, 2.5, 2.4]
+
+localization:
+  method: ground_truth
+  icp_iterations: 12
+  icp_max_correspondence: 0.12
+  voxel_downsample: 0.06
+
+spatial:
+  occupied_sdf: 0.04
+  robot_height_min: 0.05
+  robot_height_max: 1.2
+  unknown_is_occupied: true
+  inflations_m: 0.08
+
+visualization:
+  enabled: true
+  backend: dashboard
+  update_every: 4
+  dashboard_host: 127.0.0.1
+  dashboard_port: 8765
+
+exploration:
+  enabled: false
+  max_steps: 80
+  goal_radius: 0.25

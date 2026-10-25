@@ -1,0 +1,49 @@
+system:
+  device: raspberry_pi_5
+  log_level: INFO
+  max_frames: 1500
+  output_dir: outputs/rpi
+
+sensor:
+  type: realsense
+  width: 424
+  height: 240
+  fps: 6
+  fx: 320.0
+  fy: 320.0
+  cx: 212.0
+  cy: 120.0
+  align_to_color: true
+
+volume:
+  voxel_size: 0.06
+  truncation_voxels: 4.0
+  max_weight: 12.0
+  min_xyz: [-2.0, -2.0, 0.0]
+  max_xyz: [2.0, 2.0, 2.0]
+
+localization:
+  method: vo
+  icp_iterations: 8
+  icp_max_correspondence: 0.18
+  vo_ransac_iters: 48
+  voxel_downsample: 0.08
+
+spatial:
+  occupied_sdf: 0.05
+  robot_height_min: 0.05
+  robot_height_max: 1.0
+  unknown_is_occupied: true
+  inflations_m: 0.12
+
+visualization:
+  enabled: true
+  backend: dashboard
+  update_every: 8
+  dashboard_host: 0.0.0.0
+  dashboard_port: 8765
+
+exploration:
+  enabled: false
+  max_steps: 120
+  goal_radius: 0.30

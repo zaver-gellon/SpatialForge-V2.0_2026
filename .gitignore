@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Data & runtime
+data/
+*.npz
+*.bag
+*.ply
+*.pcd
+*.png
+!docs/**/*.png
+outputs/
+logs/
+.cache/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+*.swp

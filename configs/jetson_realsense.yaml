@@ -1,0 +1,49 @@
+system:
+  device: jetson_orin_nano
+  log_level: INFO
+  max_frames: 2000
+  output_dir: outputs/jetson
+
+sensor:
+  type: realsense
+  width: 640
+  height: 480
+  fps: 15
+  fx: 615.0
+  fy: 615.0
+  cx: 320.0
+  cy: 240.0
+  serial: null
+  align_to_color: true
+
+volume:
+  voxel_size: 0.04
+  truncation_voxels: 6.0
+  max_weight: 20.0
+  min_xyz: [-3.0, -3.0, 0.0]
+  max_xyz: [3.0, 3.0, 2.4]
+
+localization:
+  method: icp
+  icp_iterations: 10
+  icp_max_correspondence: 0.15
+  voxel_downsample: 0.05
+
+spatial:
+  occupied_sdf: 0.035
+  robot_height_min: 0.05
+  robot_height_max: 1.3
+  unknown_is_occupied: true
+  inflations_m: 0.10
+
+visualization:
+  enabled: true
+  backend: dashboard
+  update_every: 5
+  dashboard_host: 0.0.0.0
+  dashboard_port: 8765
+
+exploration:
+  enabled: false
+  max_steps: 200
+  goal_radius: 0.30

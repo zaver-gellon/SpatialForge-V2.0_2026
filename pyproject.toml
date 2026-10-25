@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spatialforge"
+version = "0.1.0"
+description = "Edge-native real-time 3D spatial mapping, localization, and query layer for physical machines."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "SpatialForge" }]
+keywords = ["mapping", "TSDF", "localization", "robotics", "edge-ai", "realsense"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "opencv-python>=4.8",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+viz = ["open3d>=0.18"]
+realsense = ["pyrealsense2>=2.54"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+spatialforge-map = "spatialforge.cli:run_mapping"
+spatialforge-explore = "spatialforge.cli:run_exploration"
+spatialforge-query = "spatialforge.cli:query_demo"
+spatialforge-replay = "spatialforge.cli:replay_bag"
+
+[project.urls]
+Homepage = "https://github.com/spatialforge/spatialforge"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
